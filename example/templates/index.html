@@ -1,0 +1,29 @@
+<html>
+<body>
+<h1>Welcome to Page</h1>
+</body>
+<script>
+//socket=new WebSocket("ws://127.0.0.1:8000/status/")
+socket=new WebSocket("ws://"+window.location.host+"/chat/")
+socket.onopen=function(e){
+    console.log("open",e)
+    //document.write("handshake done")
+    
+    
+    
+}
+socket.onmessage=function(e){
+    console.log("message",e)
+    var x = document.createElement("P");                        // Create a <p> node
+    var t = document.createTextNode(e['data']);    // Create a text node
+    x.appendChild(t);
+    //var m=document.getElementById("main")                                           // Append the text to <p>
+    document.body.appendChild(x);
+    //document.m.appendChild(x);        
+
+   // document.write("Message",e["data"])
+
+}
+
+</script>
+</html>
