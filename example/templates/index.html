@@ -7,6 +7,11 @@
 socket=new WebSocket("ws://"+window.location.host+"/chat/")
 socket.onopen=function(e){
     console.log("open",e)
+    var xx= document.createElement("P");                        // Create a <p> node
+    var tt = document.createTextNode('Websocket connection established');    // Create a text node
+    xx.appendChild(tt);
+    //var m=document.getElementById("main")                                           // Append the text to <p>
+    document.body.appendChild(xx);
     //document.write("handshake done")
     
     
@@ -15,7 +20,7 @@ socket.onopen=function(e){
 socket.onmessage=function(e){
     console.log("message",e)
     var x = document.createElement("P");                        // Create a <p> node
-    var t = document.createTextNode(e['data']);    // Create a text node
+    var t = document.createTextNode(e["data"]);    // Create a text node
     x.appendChild(t);
     //var m=document.getElementById("main")                                           // Append the text to <p>
     document.body.appendChild(x);

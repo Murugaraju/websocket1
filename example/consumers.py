@@ -5,17 +5,17 @@ def ws_add(message):
     # Accept the connection
     message.reply_channel.send({"accept": True})
     # Add to the chat group
-    Group("chat").add(message.reply_channel)
+    Group("chat/check/").add(message.reply_channel)
 
 # Connected to websocket.receive
 def ws_message(message):
-    Group("chat").send({
+    Group("chat/check/").send({
         "text": "[user] %s" % message.content['text'],
     })
 
 # Connected to websocket.disconnect
 def ws_disconnect(message):
-    Group("chat").discard(message.reply_channel)
+    Group("chat/check/").discard(message.reply_channel)
 
 
 
